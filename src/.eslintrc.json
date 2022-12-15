@@ -24,6 +24,11 @@
       "plugins": [
         "jest"
       ],
+      "env": {
+        "jasmine": true,
+        "browser": true,
+        "node": true
+      },
       "rules": {
         "@angular-eslint/component-selector": [
           "error",
@@ -54,17 +59,6 @@
       }
     },
     {
-      "env": {
-        "jest": true
-      },
-      "files": [
-        "**/*.spec.js"
-      ],
-      "plugins": [
-        "jest"
-      ]
-    },
-    {
       "files": [
         "*.html"
       ],
@@ -72,6 +66,12 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
+    },
+    {
+      "files": ["test/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": { "jest/prefer-expect-assertions": "off" }
     }
   ]
 }
