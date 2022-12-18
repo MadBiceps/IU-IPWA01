@@ -1,1 +1,5 @@
 src/node_modules
+
+*.pack
+
+src/.angular/cache/15.0.4/babel-webpack/
