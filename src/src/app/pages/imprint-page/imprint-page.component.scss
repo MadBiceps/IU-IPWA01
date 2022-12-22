@@ -1,0 +1,22 @@
+.page-wrapper {
+  min-height: calc(100vh - 9rem);
+
+  .content-area {
+    margin: 0 2rem;
+    margin-bottom: 3rem;
+    .content {
+      .content-element {
+        .text {
+          p {
+            margin: 0.2rem 0;
+          }
+        }
+        .legal-text {
+          p {
+            margin: 1rem 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
