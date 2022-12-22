@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ImpressumPageComponent } from './pages/impressum-page/impressum-page.component';
+import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
 
 const routes: Routes = [
   {
-    path: 'impressum',
-    component: ImpressumPageComponent
+    path: 'imprint',
+    component: ImprintPageComponent
   }
 ];
 
