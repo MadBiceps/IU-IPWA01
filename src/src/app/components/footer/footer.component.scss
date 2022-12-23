@@ -14,14 +14,18 @@
       text-align: center;
       margin: 1rem;
     }
-    .link-list {
-      margin: 1rem;
-      a {
-        margin: 0 0.5rem;
-        color: #fff;
-        &:hover {
-          text-decoration: underline;
-          cursor: pointer;
+    .link-wrapper {
+      display: flex;
+      justify-content: center;
+      .link-list {
+        margin: 1rem;
+        a {
+          margin: 0 0.5rem;
+          color: #fff;
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
         }
       }
     }
