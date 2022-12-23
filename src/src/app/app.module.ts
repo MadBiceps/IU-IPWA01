@@ -8,9 +8,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas, faTshirt } from '@fortawesome/free-solid-svg-icons';
 import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
+import { PrivacyPageComponent } from './pages/privacy-page/privacy-page.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, ImprintPageComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, ImprintPageComponent, PrivacyPageComponent],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent]
