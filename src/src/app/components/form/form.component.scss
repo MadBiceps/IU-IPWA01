@@ -1,0 +1,119 @@
+@import '../../../styles/colors.scss';
+
+.form-wrapper {
+  form {
+
+    .form-list {
+      .form-list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem 0;
+        .form-list-title {
+          font-weight: bold;
+          font-size: larger;
+        }
+        .form-list-button {
+          button {
+            padding: 0.5rem;
+            border: solid 1px #000;
+            font-weight: bold;
+            background-color: transparent;
+
+            &:focus {
+              outline: none;
+            }
+            &:hover {
+              cursor: pointer;
+              background-color: $accent-color;;
+              color: black;
+            }
+          }
+        }
+      }
+
+      .form-list-element {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem 0;
+        .form-element {
+          width: 100%;
+          margin: 0 0.5rem;
+        }
+        .form-element-count {
+          width: 10rem;
+          text-align: center;
+        }
+        .form-list-element-button {
+          button {
+            padding: 0.5rem;
+            border: solid 1px #000;
+            font-weight: bold;
+            background-color: transparent;
+
+            &:focus {
+              outline: none;
+            }
+            &:hover {
+              cursor: pointer;
+              background-color: $accent-color;;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+    .form-element {
+      margin: 1rem 0;
+
+      label {
+        margin: 0.5rem 0;
+        font-weight: bold;
+      }
+      input[type='text'] {
+        width: 100%;
+        padding: 0.3rem 0.3rem;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid black;
+        &:focus {
+          outline: none;
+        }
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+
+      .button-toggle {
+        display: flex;
+        justify-content: space-between;
+        width: 30rem;
+        max-width: 90%;
+        button {
+          width: 100%;
+          padding: 0.5rem;
+          border: solid 1px #000;
+          background-color: $accent-color;
+          font-weight: bold;
+
+          fa-icon {
+            margin-right: 0.5rem;
+          }
+
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            cursor: pointer;
+            background-color: black;
+            color: $accent-color;
+          }
+        }
+      }
+    }
+  }
+}

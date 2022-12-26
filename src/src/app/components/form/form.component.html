@@ -1,1 +1,72 @@
-<p>form works!</p>
+<div class="form-wrapper">
+  <form [formGroup]="form">
+
+    <div class="form-element">
+      <div class="button-toggle">
+        <button type="button" (click)="setLocalDropOff(true)">
+          <fa-icon icon="location-dot"></fa-icon>
+          <span>Local Drop off</span>
+        </button>
+        <button type="button" (click)="setLocalDropOff(false)">
+          <fa-icon icon="truck-ramp-box"></fa-icon>
+          <span>Pick Up</span>
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="!isLocalDropOff()" formGroupName="address">
+      <div class="form-element">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" />
+      </div>
+
+      <div class="form-element">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" />
+      </div>
+
+      <div class="form-element">
+        <label for="street">Street</label>
+        <input type="text" id="street" formControlName="street" />
+      </div>
+
+      <div class="form-element">
+        <label for="zip">Zip</label>
+        <input type="text" id="zip" formControlName="zipCode" />
+      </div>
+
+      <div class="form-element">
+        <label for="city">City</label>
+        <input type="text" id="city" formControlName="city" />
+      </div>
+    </div>
+
+    <div class="form-list">
+      <div class="form-list-header">
+        <div class="form-list-title ">
+          What clothes are donated?
+        </div>
+        <div class="form-list-button">
+          <button type="button">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="form-list-element" *ngFor="let item of getClothingTypes()">
+        <div class="form-element-count">
+          <input type="number" id="clothingCount" placeholder="Count" formControlName="item.count" />
+        </div>
+        <div class="form-element">
+          <label for="clothingType">Clothing Type</label>
+          <input type="text" id="clothingType" formControlName="item.type" />
+        </div>
+        <div class="form-list-element-button">
+          <button type="button">
+            <fa-icon icon="trash"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>

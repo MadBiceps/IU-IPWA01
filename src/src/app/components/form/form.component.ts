@@ -99,6 +99,10 @@ export class FormComponent {
     }));
   }
 
+  public getClothingTypes(): FormGroup[] {
+    return (this.form.get('clothingType') as FormArray).controls as FormGroup[];
+  }
+
   public removeClothingType(id: string): void {
     const index = (this.form.get('clothingType') as FormArray).controls.findIndex((control) => {
       return control.get('id')?.value === id;
@@ -109,5 +113,13 @@ export class FormComponent {
     }
     
     (this.form.get('clothingType') as FormArray).removeAt(index);
+  }
+
+  public isLocalDropOff(): boolean {
+    return this.form.get('localDropOff')?.value;
+  }
+
+  public setLocalDropOff(value: boolean): void {
+    this.form.get('localDropOff')?.setValue(value);
   }
 }
