@@ -34,7 +34,9 @@
             margin-top: 1.25rem;
             &:hover {
                 color: $accent-color;
-                background-color: #000;
+                background-color: white;
+                border-color: white;
+                transition: all 0.2 ease;
                 cursor: pointer;
                 .link {
                     color: $accent-color;

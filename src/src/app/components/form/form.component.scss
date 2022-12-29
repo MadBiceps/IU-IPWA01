@@ -1,0 +1,175 @@
+@import '../../../styles/colors.scss';
+
+.form-wrapper {
+  form {
+    .action-area {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+
+      button {
+        width: 15rem;
+        max-width: 90vw;
+        padding: 0.5rem;
+        border: solid 1px #000;
+        font-weight: bold;
+        background-color: $accent-color;
+        border-color: black;
+        font-weight: bold;
+
+        &:hover {
+          color: $accent-color;
+          background-color: white;
+          border-color: $accent-color;
+          transition: all 0.2 ease;
+          cursor: pointer;
+        }
+      }
+    }
+    .form-list {
+      .form-list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem 0;
+        .form-list-title {
+          font-weight: bold;
+          font-size: larger;
+        }
+        .form-list-button {
+          button {
+            padding: 0.5rem;
+            border: solid 1px #000;
+            font-weight: bold;
+            background-color: transparent;
+
+            &:focus {
+              outline: none;
+            }
+            &:hover {
+              cursor: pointer;
+              background-color: $accent-color;
+              color: white;
+              transition: all 0.2 ease;
+              border-color: $accent-color;
+            }
+          }
+        }
+      }
+
+      .form-list-element {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem 0;
+        .form-element {
+          width: 100%;
+          margin: 0 0.5rem;
+        }
+        .form-element-count {
+          width: 10rem;
+          text-align: center;
+        }
+        .form-list-element-button {
+          margin-left: 1rem;
+          button {
+            padding: 0.5rem;
+            border: solid 1px #000;
+            font-weight: bold;
+            background-color: transparent;
+
+            &:focus {
+              outline: none;
+            }
+            &:hover:enabled {
+              cursor: pointer;
+              background-color: $accent-color;
+              color: white;
+              transition: all 0.2 ease;
+              border-color: $accent-color;
+            }
+
+            &:hover:disabled {
+              cursor: not-allowed;
+            }
+
+          }
+        }
+      }
+    }
+
+    .form-element-count {
+      input {
+        width: 6rem;
+        max-width: 30vw;
+      }
+    }
+
+    .form-element {
+      margin: 1rem 0;
+
+      label {
+        margin: 0.5rem 0;
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        padding: 0.3rem 0.3rem;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid black;
+        &:focus {
+          outline: none;
+        }
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+
+      .button-toggle {
+        display: flex;
+        justify-content: space-between;
+        width: 30rem;
+        max-width: 90%;
+        .selected {
+          background-color: gray;
+          color: white;
+          &:hover {
+            background-color: $accent-color !important;
+            color: white !important;
+            border-color: $accent-color !important;
+            transition: all 0.2s ease;
+          }
+        }
+        button {
+          width: 100%;
+          padding: 0.5rem;
+          border: solid 1px gray;
+          background-color: white;
+          color: gray;
+          font-weight: bold;
+
+          fa-icon {
+            margin-right: 0.5rem;
+          }
+
+          &:focus {
+            outline: none;
+          }
+          &:hover {
+            cursor: pointer;
+            color: $accent-color;
+            background-color: white;
+            border-color: $accent-color;
+            transition: all 0.2s ease;
+          }
+        }
+      }
+    }
+  }
+}
