@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConfirmationPageComponent } from './pages/confirmation-page/confirmation-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
 import { PrivacyPageComponent } from './pages/privacy-page/privacy-page.component';
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterPageComponent
+  },
+  {
+    path: 'confirmation/:id',
+    component: ConfirmationPageComponent
   },
   {
     path: 'imprint',

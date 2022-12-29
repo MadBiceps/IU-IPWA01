@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,12 +14,14 @@ import { FormComponent } from './components/form/form.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
+import { ConfirmationPageComponent } from './pages/confirmation-page/confirmation-page.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, ImprintPageComponent, PrivacyPageComponent, FormComponent, RegisterPageComponent, HomePageComponent, FormErrorComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, ImprintPageComponent, PrivacyPageComponent, FormComponent, RegisterPageComponent, HomePageComponent, FormErrorComponent, ConfirmationPageComponent],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
