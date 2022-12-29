@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
-import { ClothingDonation } from 'src/app/models/clothing-donaition';
+import { ClothingDonation } from 'src/app/models/clothing-donation.model';
 
 @Component({
   selector: 'app-form',
@@ -44,7 +44,8 @@ export class FormComponent {
       ]),
       address: formBuilder.group({
         name: new FormControl('', [
-          Validators.required
+          Validators.required,
+          Validators.minLength(3)
         ]),
         street: new FormControl('', [
           Validators.required,
@@ -71,9 +72,6 @@ export class FormComponent {
       }),
       clothingType: new FormArray([
         new FormGroup({
-          id: new FormControl(UUID.UUID(), [
-            Validators.required
-          ]),
           type: new FormControl('', [
             Validators.required
           ]),
@@ -100,19 +98,21 @@ export class FormComponent {
   }
 
   public getClothingTypes(): FormGroup[] {
+
+    this.form.get('address')?.get('name')?.invalid
+
     return (this.form.get('clothingType') as FormArray).controls as FormGroup[];
   }
 
-  public removeClothingType(id: string): void {
-    const index = (this.form.get('clothingType') as FormArray).controls.findIndex((control) => {
-      return control.get('id')?.value === id;
-    });
-
-    if(index === -1) {
+  public removeClothingType(index: number): void {
+    if (this.getClothingTypeCount() <= 1) {
       return;
     }
-    
     (this.form.get('clothingType') as FormArray).removeAt(index);
+  }
+
+  public getClothingTypeCount(): number {
+    return (this.form.get('clothingType') as FormArray).length;
   }
 
   public isLocalDropOff(): boolean {
@@ -121,5 +121,55 @@ export class FormComponent {
 
   public setLocalDropOff(value: boolean): void {
     this.form.get('localDropOff')?.setValue(value);
+  }
+
+  public getValidation(formField: AbstractControl<any, any> | null | undefined): ValidationErrors | undefined {
+    if (formField === undefined || formField === null) {
+      return undefined;
+    }
+
+    if (formField.untouched || formField.valid) {
+      return undefined;
+    }
+
+    if (formField.errors === null) {
+      return undefined;
+    }
+
+    return formField.errors;
+  }
+
+  public getFormArrayControls(arrayName: string, index: number, controlName: string) {
+    return (this.form.get(arrayName) as FormArray).controls[index].get(controlName);
+  }
+
+  onSubmit() {
+    if(this.form.touched && this.form.valid) {
+
+      let data: ClothingDonation = {
+        id: this.form.get('id')?.value,
+        localDropOff: this.form.get('localDropOff')?.value,
+        address: !this.form.get('localDropOff')?.value  ? undefined : {
+          name: this.form.get('address')?.get('name')?.value,
+          street: this.form.get('address')?.get('street')?.value,
+          houseNumber: this.form.get('address')?.get('houseNumber')?.value,
+          zipCode: this.form.get('address')?.get('zipCode')?.value,
+          city: this.form.get('address')?.get('city')?.value,
+          email: this.form.get('address')?.get('email')?.value 
+        },
+        clothingType: []
+      };
+
+      (this.form.get('clothingTye') as FormArray).controls.forEach(element => {
+        data.clothingType.push({
+          type: element.get('type')?.value,
+          count: element.get('count')?.value
+        });
+      });
+
+      this.onSubmitted.emit(data);
+    } else {
+      // Display Error that the form is not valid
+    }
   }
 }
