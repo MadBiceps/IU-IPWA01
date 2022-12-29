@@ -8,7 +8,6 @@ export interface ClothingDonation {
 export interface Address {
   name: string;
   street: string;
-  houseNumber: number;
   zipCode: number;
   city: string;
   email: string;

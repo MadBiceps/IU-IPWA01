@@ -51,12 +51,6 @@ export class FormComponent {
           Validators.required,
           Validators.minLength(3)
         ]),
-        houseNumber: new FormControl('', [
-          Validators.required,
-          Validators.minLength(1),
-          Validators.maxLength(5),
-          Validators.pattern(/^[1-9]\d*$/)
-        ]),
         zipCode: new FormControl('', [
           Validators.required,
           Validators.pattern(/^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/)
@@ -144,15 +138,13 @@ export class FormComponent {
   }
 
   onSubmit() {
-    if(this.form.touched && this.form.valid) {
-
+    if(this.form.touched) {
       let data: ClothingDonation = {
         id: this.form.get('id')?.value,
         localDropOff: this.form.get('localDropOff')?.value,
-        address: !this.form.get('localDropOff')?.value  ? undefined : {
+        address: this.form.get('localDropOff')?.value  ? undefined : {
           name: this.form.get('address')?.get('name')?.value,
           street: this.form.get('address')?.get('street')?.value,
-          houseNumber: this.form.get('address')?.get('houseNumber')?.value,
           zipCode: this.form.get('address')?.get('zipCode')?.value,
           city: this.form.get('address')?.get('city')?.value,
           email: this.form.get('address')?.get('email')?.value 
@@ -160,7 +152,7 @@ export class FormComponent {
         clothingType: []
       };
 
-      (this.form.get('clothingTye') as FormArray).controls.forEach(element => {
+      (this.form.get('clothingType') as FormArray).controls.forEach(element => {
         data.clothingType.push({
           type: element.get('type')?.value,
           count: element.get('count')?.value
