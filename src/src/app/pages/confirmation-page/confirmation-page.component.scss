@@ -1,0 +1,31 @@
+@import '../../../styles/colors.scss';
+
+.confirm-wrapper {
+  min-height: calc(100vh - 12rem);
+  margin: 0 1rem;
+
+  .header-section {
+    width: 100%;
+    margin: 2rem 0;
+    .checkmark-icon {
+      text-align: center;
+      color: $success-color;
+    }
+    .title {
+      text-align: center;
+    }
+  }
+
+  .collect-point-wrapper {
+    text-align: center;
+  }
+
+  .summary-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    div {
+      text-align: center;
+    }
+  }
+}

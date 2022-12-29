@@ -1,1 +1,44 @@
-<p>confirmation-page works!</p>
+<div class="confirm-wrapper" *ngIf="clothingDonation !== undefined; else loading">
+  <div class="header-section">
+    <div class="checkmark-icon">
+      <fa-icon icon="circle-check" size="8x"></fa-icon>
+    </div>
+    <div class="title">
+      <h1>Thank you for your clothing donation</h1>
+      <h2 *ngIf="clothingDonation?.localDropOff">
+        Please drop off the clothing donation at the reception desk
+      </h2>
+      <h2 *ngIf="!clothingDonation?.localDropOff">
+        Please place the clothing donation outside the door. We will pick them up in the next few days
+      </h2>
+    </div>
+  </div>
+  <div class="collect-point-wrapper" *ngIf="!clothingDonation?.localDropOff">
+    <h3>We will collect the clothing on the following address</h3>
+    <div>
+      <span>
+        {{ clothingDonation.address?.name }} <br />
+      </span>
+      <span>
+        {{ clothingDonation.address?.street }} <br />
+      </span>
+      <span>
+        {{ clothingDonation.address?.zipCode + ' ' + clothingDonation.address?.city }}
+      </span>
+    </div>
+  </div>
+  <div class="summary-section">
+    <div>
+      <h3>The following clothing items were registered for donation</h3>
+      <div>
+        <span *ngFor="let clothing of clothingDonation.clothingType">
+          {{ clothing.count + 'x ' + clothing.type }} <br />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+
+</ng-template>
