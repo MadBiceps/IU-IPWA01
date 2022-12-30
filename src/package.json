@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,html,css,scss}' --quiet --fix",
     "format": "prettier 'src/**/*.{js,jsx,ts,tsx,html,css,scss}' --write",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng deploy --base-href=/IU-IPWA01/"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +47,7 @@
     "@types/jest": "^29.2.4",
     "@typescript-eslint/eslint-plugin": "5.43.0",
     "@typescript-eslint/parser": "5.43.0",
+    "angular-cli-ghpages": "^1.0.5",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
