@@ -9,7 +9,7 @@
   .content-area {
     display: flex;
     justify-content: center;
-    color: #fff;
+    color: $secondary-color;
     .footer-text {
       text-align: center;
       margin: 1rem;
@@ -21,7 +21,7 @@
         margin: 1rem;
         a {
           margin: 0 0.5rem;
-          color: #fff;
+          color: $secondary-color;
           &:hover {
             text-decoration: underline;
             cursor: pointer;

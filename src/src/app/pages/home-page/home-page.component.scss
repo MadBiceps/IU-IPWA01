@@ -36,14 +36,14 @@
     button {
       border: solid 2px $accent-color;
       color: $accent-color;
-      background-color: white;
+      background-color: $secondary-color;
       padding: 1rem;
       font-weight: bold;
       font-size: large;
 
       &:hover {
         background-color: $accent-color;
-        color: white;
+        color: $secondary-color;
         transition: all 0.3s ease;
         cursor: pointer;
       }
