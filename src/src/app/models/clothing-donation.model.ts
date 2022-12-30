@@ -3,6 +3,7 @@ export interface ClothingDonation {
   localDropOff: boolean;
   address: Address | undefined;
   clothingType: ClothingType[];
+  crisisArea: string;
 }
 
 export interface Address {
