@@ -9,11 +9,7 @@ import { StorageService } from 'src/app/services/storage/storage.service';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
-
-  constructor(
-    private storageService: StorageService,
-    private router: Router
-  ) { }
+  constructor(private storageService: StorageService, private router: Router) {}
 
   onSave(donation: ClothingDonation) {
     this.storageService.save(donation.id, donation);

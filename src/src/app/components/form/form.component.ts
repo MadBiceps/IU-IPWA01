@@ -1,5 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators
+} from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 import { ClothingDonation } from 'src/app/models/clothing-donation.model';
 
@@ -9,7 +17,6 @@ import { ClothingDonation } from 'src/app/models/clothing-donation.model';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
-
   /**
    * Fields normal:
    * - name
@@ -21,27 +28,23 @@ export class FormComponent {
    * - clothing type
    * - clothing count
    * - crisis area
-   * 
+   *
    * Fields local drop off:
    * - clothing type
    * - clothing count
    * - crisis area
-  */
+   */
 
   public form: FormGroup;
 
-  @Output() onSubmitted = new EventEmitter<ClothingDonation>();
+  @Output() submitted = new EventEmitter<ClothingDonation>();
 
   constructor(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       id: new FormControl(UUID.UUID(), {
-        validators: [
-          Validators.required
-        ]
+        validators: [Validators.required]
       }),
-      localDropOff: new FormControl(false, [
-        Validators.required
-      ]),
+      localDropOff: new FormControl(false, [Validators.required]),
       address: formBuilder.group({
         name: new FormControl('', [
           Validators.required,
@@ -59,41 +62,34 @@ export class FormComponent {
           Validators.required,
           Validators.minLength(3)
         ]),
-        email: new FormControl('', [
-          Validators.required,
-          Validators.email
-        ])
+        email: new FormControl('', [Validators.required, Validators.email])
       }),
-      clothingType: new FormArray([
-        new FormGroup({
-          type: new FormControl('', [
-            Validators.required
-          ]),
-          count: new FormControl('', [
-            Validators.required,
-            Validators.pattern(/^[1-9]\d*$/)
-          ])
-        })
-      ], [
-        Validators.minLength(1)
-      ])
+      clothingType: new FormArray(
+        [
+          new FormGroup({
+            type: new FormControl('', [Validators.required]),
+            count: new FormControl('', [
+              Validators.required,
+              Validators.pattern(/^[1-9]\d*$/)
+            ])
+          })
+        ],
+        [Validators.minLength(1)]
+      )
     });
   }
 
   public addClothingType(): void {
-    (this.form.get('clothingType') as FormArray).push(new FormGroup({
-      type: new FormControl('', [
-        Validators.required
-      ]),
-      count: new FormControl('', [
-        Validators.required
-      ])
-    }));
+    (this.form.get('clothingType') as FormArray).push(
+      new FormGroup({
+        type: new FormControl('', [Validators.required]),
+        count: new FormControl('', [Validators.required])
+      })
+    );
   }
 
   public getClothingTypes(): FormGroup[] {
-
-    this.form.get('address')?.get('name')?.invalid
+    this.form.get('address')?.get('name')?.invalid;
 
     return (this.form.get('clothingType') as FormArray).controls as FormGroup[];
   }
@@ -117,7 +113,9 @@ export class FormComponent {
     this.form.get('localDropOff')?.setValue(value);
   }
 
-  public getValidation(formField: AbstractControl<any, any> | null | undefined): ValidationErrors | undefined {
+  public getValidation(
+    formField: AbstractControl<any, any> | null | undefined
+  ): ValidationErrors | undefined {
     if (formField === undefined || formField === null) {
       return undefined;
     }
@@ -133,31 +131,41 @@ export class FormComponent {
     return formField.errors;
   }
 
-  public getFormArrayControls(arrayName: string, index: number, controlName: string) {
-    return (this.form.get(arrayName) as FormArray).controls[index].get(controlName);
+  public getFormArrayControls(
+    arrayName: string,
+    index: number,
+    controlName: string
+  ) {
+    return (this.form.get(arrayName) as FormArray).controls[index].get(
+      controlName
+    );
   }
 
   onSubmit() {
-    if(this.form.touched) {
-      let data: ClothingDonation = {
+    if (this.form.touched) {
+      const data: ClothingDonation = {
         id: this.form.get('id')?.value,
         localDropOff: this.form.get('localDropOff')?.value,
-        address: this.form.get('localDropOff')?.value  ? undefined : {
-          name: this.form.get('address')?.get('name')?.value,
-          street: this.form.get('address')?.get('street')?.value,
-          zipCode: this.form.get('address')?.get('zipCode')?.value,
-          city: this.form.get('address')?.get('city')?.value,
-          email: this.form.get('address')?.get('email')?.value 
-        },
+        address: this.form.get('localDropOff')?.value
+          ? undefined
+          : {
+              name: this.form.get('address')?.get('name')?.value,
+              street: this.form.get('address')?.get('street')?.value,
+              zipCode: this.form.get('address')?.get('zipCode')?.value,
+              city: this.form.get('address')?.get('city')?.value,
+              email: this.form.get('address')?.get('email')?.value
+            },
         clothingType: []
       };
 
-      (this.form.get('clothingType') as FormArray).controls.forEach(element => {
-        data.clothingType.push({
-          type: element.get('type')?.value,
-          count: element.get('count')?.value
-        });
-      });
+      (this.form.get('clothingType') as FormArray).controls.forEach(
+        (element) => {
+          data.clothingType.push({
+            type: element.get('type')?.value,
+            count: element.get('count')?.value
+          });
+        }
+      );
 
       this.onSubmitted.emit(data);
     } else {

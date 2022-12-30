@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './imprint-page.component.html',
   styleUrls: ['./imprint-page.component.scss']
 })
-export class ImprintPageComponent {
-
-}
+export class ImprintPageComponent {}
