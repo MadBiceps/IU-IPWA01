@@ -1,4 +1,4 @@
-@import '../../../styles/colors.scss';
+  @import '../../../styles/colors.scss';
 
 .form-wrapper {
   form {
@@ -29,6 +29,20 @@
         }
       }
     }
+
+    .form-element-parallel {
+      display: flex;
+      justify-content: space-between;
+      #zip-form-element {
+        width: 15rem;
+        padding-left: 0;
+      }
+      .form-element {
+        width: 100%;
+        padding-left: 1rem;
+      }
+    }
+
     .form-list {
       .form-list-header {
         display: flex;
@@ -129,6 +143,23 @@
       .error {
         color: red;
         font-weight: bold;
+      }
+
+      select {
+        width: 100%;
+        padding: 0.3rem 0.3rem;
+        margin-left: 0;
+        padding-left: 0;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 2px solid black;
+        &:focus {
+          outline: none;
+        }
+        .no-select {
+          display: none;
+        }
       }
 
       .button-toggle {

@@ -75,7 +75,10 @@ export class FormComponent {
           })
         ],
         [Validators.minLength(1)]
-      )
+      ),
+      crisisArea: new FormControl('', [
+        Validators.required
+      ])
     });
   }
 
@@ -155,7 +158,8 @@ export class FormComponent {
               city: this.form.get('address')?.get('city')?.value,
               email: this.form.get('address')?.get('email')?.value
             },
-        clothingType: []
+        clothingType: [],
+        crisisArea: this.form.get('crisisArea')?.value
       };
 
       (this.form.get('clothingType') as FormArray).controls.forEach(
