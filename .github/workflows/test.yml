@@ -33,6 +33,4 @@ jobs:
           steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build
-        run: npm run build -- --prod
-      - name: Lint
-        run: npm run lint
+        run: npm run build --prod

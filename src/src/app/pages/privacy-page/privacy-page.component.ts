@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './privacy-page.component.html',
   styleUrls: ['./privacy-page.component.scss']
 })
-export class PrivacyPageComponent {
-
-}
+export class PrivacyPageComponent {}

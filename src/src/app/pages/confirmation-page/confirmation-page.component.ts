@@ -9,19 +9,16 @@ import { StorageService } from 'src/app/services/storage/storage.service';
   styleUrls: ['./confirmation-page.component.scss']
 })
 export class ConfirmationPageComponent {
-
   public clothingDonation: ClothingDonation | undefined;
 
   constructor(
     private storageService: StorageService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.activatedRoute.params.subscribe(params => {
-      let id = params['id'];
+    this.activatedRoute.params.subscribe((params) => {
+      const { id } = params;
 
       this.clothingDonation = this.storageService.get(id);
     });
   }
-
-
 }
