@@ -10,6 +10,7 @@
 
     .area {
         margin: 1rem;
+        color: white;
         .title-element {
             margin: auto;
             .icon {
@@ -28,7 +29,7 @@
         margin: 0 1rem;
         display: flex;
         .navigation-element {
-            border: solid 1px #000;
+            border: solid 1px white;
             padding: 0.2rem;
             margin: 1rem;
             margin-top: 1.25rem;
@@ -44,7 +45,7 @@
             }
             .link {
                 margin: 0 0.5rem;
-                color: #000;
+                color: white;
                 font-weight: bold;
                 text-decoration: none;
                
