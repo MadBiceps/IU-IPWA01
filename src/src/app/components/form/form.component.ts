@@ -167,7 +167,7 @@ export class FormComponent {
         }
       );
 
-      this.onSubmitted.emit(data);
+      this.submitted.emit(data);
     } else {
       // Display Error that the form is not valid
     }
