@@ -5,3 +5,5 @@ src/node_modules
 src/.angular/cache/15.0.4/babel-webpack/
 
 *.old
+
+src/dist/clothing-donation/
