@@ -56,7 +56,7 @@ export class FormComponent {
         ]),
         zipCode: new FormControl('', [
           Validators.required,
-          Validators.pattern(/^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/)
+          Validators.pattern(/^(?!72000|72999)(0[1-9]\d{3}|[1-9]\d{4})$/)
         ]),
         city: new FormControl('', [
           Validators.required,
@@ -152,12 +152,12 @@ export class FormComponent {
         address: this.form.get('localDropOff')?.value
           ? undefined
           : {
-              name: this.form.get('address')?.get('name')?.value,
-              street: this.form.get('address')?.get('street')?.value,
-              zipCode: this.form.get('address')?.get('zipCode')?.value,
-              city: this.form.get('address')?.get('city')?.value,
-              email: this.form.get('address')?.get('email')?.value
-            },
+            name: this.form.get('address')?.get('name')?.value,
+            street: this.form.get('address')?.get('street')?.value,
+            zipCode: this.form.get('address')?.get('zipCode')?.value,
+            city: this.form.get('address')?.get('city')?.value,
+            email: this.form.get('address')?.get('email')?.value
+          },
         clothingType: [],
         crisisArea: this.form.get('crisisArea')?.value
       };

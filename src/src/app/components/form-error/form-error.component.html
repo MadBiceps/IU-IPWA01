@@ -6,4 +6,8 @@
   <div class="error-element" *ngIf="errors['email']">
     Your E-Mail is not valid
   </div>
+
+  <div class="error-element" *ngIf="errors['pattern']">
+    The entered zip code is unfortunately not in our pickup radius.
+  </div>
 </div>

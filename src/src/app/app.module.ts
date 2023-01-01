@@ -25,6 +25,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
 import { ConfirmationPageComponent } from './pages/confirmation-page/confirmation-page.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ConfirmationPageComponent } from './pages/confirmation-page/confirmatio
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

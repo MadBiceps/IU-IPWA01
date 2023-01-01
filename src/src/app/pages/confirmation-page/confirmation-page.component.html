@@ -8,11 +8,14 @@
     </div>
     <div class="title">
       <h1>Thank you for your clothing donation for {{ clothingDonation.crisisArea }}</h1>
+
+      <qrcode [qrdata]="clothingDonation.id" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+
       <h2 *ngIf="clothingDonation?.localDropOff">
-        Please drop off the clothing donation at the reception desk
+        Please drop off the clothing donation at the reception desk and show your QR-Code
       </h2>
       <h2 *ngIf="!clothingDonation?.localDropOff">
-        Please place the clothing donation outside the door. We will pick them
+        Please place the clothing donation outside the door and stick the upper QR code on it. We will pick them
         up in the next few days
       </h2>
     </div>

@@ -28,6 +28,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "angular2-uuid": "^1.1.1",
+    "angularx-qrcode": "^15.0.1",
     "eslint-plugin-jest": "^27.1.6",
     "font-awesome": "^4.7.0",
     "rxjs": "~7.5.0",
